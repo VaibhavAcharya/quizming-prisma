@@ -1,0 +1,12 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "UpdateField",
+      "model": "Quiz",
+      "field": "questions",
+      "type": "Json",
+      "arity": "Required"
+    }
+  ]
+}
