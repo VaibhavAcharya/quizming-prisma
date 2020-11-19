@@ -1,3 +1,3 @@
 export default function getBaseURL() {
-  return process.env.NEXT_PUBLIC_BASE_URL;
+  return process.env.NODE_ENV === 'production' ? 'https://quizming.vercel.app' : 'http://localhost:3000';
 }
