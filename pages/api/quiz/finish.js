@@ -10,10 +10,10 @@ export default async function (req, res) {
 
       const { userId } = await prisma.quiz.findOne({
         where: {
-          id: data.id
-        }
+          id: data.id,
+        },
       });
-      if ( userId === session.user.id ) {
+      if (userId === session.user.id) {
         const quiz = await prisma.quiz.update({
           where: {
             id: data.id,
@@ -25,7 +25,7 @@ export default async function (req, res) {
 
         res.json(quiz);
       } else {
-        throw Error("This quiz is not yours to start!")
+        throw Error("This quiz is not yours to start!");
       }
     } else {
       throw Error("Authentication required.");

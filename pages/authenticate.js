@@ -18,8 +18,10 @@ export async function getServerSideProps(ctx) {
       },
     };
   } else {
-    return { redirect: {
-      destination: "/api/auth/signin"
-    } };
+    return {
+      redirect: {
+        destination: "/api/auth/signin",
+      },
+    };
   }
 }

@@ -11,7 +11,7 @@ export default async function (req, res) {
         data: {
           ...data,
           userId: session.user.id,
-        }
+        },
       });
 
       res.json(quiz);

@@ -28,10 +28,10 @@ export default function NewTest() {
       id: 1,
       title: "",
       options: {
-        1: '',
-        2: '',
-        3: '',
-        4: '',
+        1: "",
+        2: "",
+        3: "",
+        4: "",
       },
       answer: "1",
     },
@@ -99,10 +99,10 @@ export default function NewTest() {
           id: id ? id + 1 : 1,
           title: "",
           options: {
-            1: '',
-            2: '',
-            3: '',
-            4: '',
+            1: "",
+            2: "",
+            3: "",
+            4: "",
           },
           answer: "1",
         },
@@ -131,12 +131,12 @@ export default function NewTest() {
     setQuestions((questions) => {
       return questions.map((question) => {
         if (question.id === id) {
-          if (field.startsWith('option')) {
+          if (field.startsWith("option")) {
             return {
               ...question,
-              "options": {
+              options: {
                 ...question.options,
-                [field[field.length - 1]]: value
+                [field[field.length - 1]]: value,
               },
             };
           } else {

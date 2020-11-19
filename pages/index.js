@@ -17,25 +17,25 @@ export default function Index() {
       <Tabs initialValue="1">
         <Spacer y />
         <Tabs.Item label="Fast Creation" value="1">
-      <Image.Browser url="/new">
-        <Image src="/Fast Creation.png" />
-      </Image.Browser>
-      </Tabs.Item>
+          <Image.Browser url="/new">
+            <Image src="/Fast Creation.png" />
+          </Image.Browser>
+        </Tabs.Item>
         <Tabs.Item label="Easy Management" value="2">
-      <Image.Browser url="/dashboard">
-        <Image src="/Easy Management.png" />
-      </Image.Browser>
-      </Tabs.Item>
+          <Image.Browser url="/dashboard">
+            <Image src="/Easy Management.png" />
+          </Image.Browser>
+        </Tabs.Item>
         <Tabs.Item label="Beautiful Forms" value="3">
-      <Image.Browser url="/q/6">
-        <Image src="/Beautiful Forms.png" />
-      </Image.Browser>
-      </Tabs.Item>
+          <Image.Browser url="/q/6">
+            <Image src="/Beautiful Forms.png" />
+          </Image.Browser>
+        </Tabs.Item>
         <Tabs.Item label="Automatic Results" value="4">
-      <Image.Browser url="/q/6">
-        <Image src="/Automatic Results.png" />
-      </Image.Browser>
-      </Tabs.Item>
+          <Image.Browser url="/q/6">
+            <Image src="/Automatic Results.png" />
+          </Image.Browser>
+        </Tabs.Item>
       </Tabs>
     </>
   );

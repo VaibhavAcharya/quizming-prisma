@@ -33,25 +33,22 @@ export default function Navbar() {
               <Button auto size="small" onClick={() => navigate("/")}>
                 Home
               </Button>
+            ) : currentPath.startsWith("/q/") ? (
+              ""
             ) : (
-              ( currentPath.startsWith('/q/') ? ("") :
-              (<Button
+              <Button
                 auto
                 size="small"
                 onClick={() => navigate("/authenticate")}
               >
                 Authenticate
-              </Button>)
-              )
+              </Button>
             )
-          ) : (
-            ( currentPath.startsWith('/q/') ? (<Button
-              auto
-              size="small"
-              onClick={() => navigate("/dashboard")}
-            >
+          ) : currentPath.startsWith("/q/") ? (
+            <Button auto size="small" onClick={() => navigate("/dashboard")}>
               Dashboard
-            </Button>) : (
+            </Button>
+          ) : (
             <ButtonDropdown auto size="small">
               <ButtonDropdown.Item
                 main={["/", "/new"].includes(currentPath)}
@@ -70,7 +67,7 @@ export default function Navbar() {
               >
                 Logout
               </ButtonDropdown.Item>
-            </ButtonDropdown>))
+            </ButtonDropdown>
           )}
         </Row>
       </Row>

@@ -7,10 +7,10 @@ export default async function (req, res) {
     if (session) {
       const quiz = await prisma.quiz.findMany({
         where: {
-          userId: session.user.id
-        }
+          userId: session.user.id,
+        },
       });
-      
+
       res.json(quiz);
     } else {
       throw Error("Authentication required.");
