@@ -117,7 +117,7 @@ export default function Quiz({ quiz }) {
       }
     }
 
-    ok && setIsSubmitting(false);
+    !ok && setIsSubmitting(false);
   }
 
   return quiz ? (
