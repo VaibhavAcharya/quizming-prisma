@@ -8,8 +8,10 @@ export default async function (req, res) {
       const { body } = req;
       const data = JSON.parse(body);
       const quiz = await prisma.quiz.create({
-        ...data,
-        userId: session.user.id,
+        data: {
+          ...data,
+          userId: session.user.id,
+        }
       });
 
       res.json(quiz);

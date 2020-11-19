@@ -27,10 +27,12 @@ export default function NewTest() {
     {
       id: 1,
       title: "",
-      option1: "",
-      option2: "",
-      option3: "",
-      option4: "",
+      options: {
+        1: '',
+        2: '',
+        3: '',
+        4: '',
+      },
       answer: "1",
     },
   ]);
@@ -65,7 +67,6 @@ export default function NewTest() {
       await fetch("/api/quiz/create", {
         method: "POST",
         body: JSON.stringify({
-          userId: session.user.id,
           title: title,
           questions: questions,
         }),
@@ -75,7 +76,7 @@ export default function NewTest() {
             text: "Quiz successfully created! Redirecting...",
             type: "success",
           });
-          await router.push("/");
+          await router.push("/dashboard");
         })
         .catch((e) => {
           setToasts({
@@ -97,10 +98,12 @@ export default function NewTest() {
         {
           id: id ? id + 1 : 1,
           title: "",
-          option1: "",
-          option2: "",
-          option3: "",
-          option4: "",
+          options: {
+            1: '',
+            2: '',
+            3: '',
+            4: '',
+          },
           answer: "1",
         },
       ];
@@ -128,10 +131,20 @@ export default function NewTest() {
     setQuestions((questions) => {
       return questions.map((question) => {
         if (question.id === id) {
-          return {
-            ...question,
-            [field]: value,
-          };
+          if (field.startsWith('option')) {
+            return {
+              ...question,
+              "options": {
+                ...question.options,
+                [field[field.length - 1]]: value
+              },
+            };
+          } else {
+            return {
+              ...question,
+              [field]: value,
+            };
+          }
         }
         return question;
       });
@@ -195,29 +208,29 @@ export default function NewTest() {
           <Input
             label="1"
             placeholder="Eg. 1010"
-            value={que.option1}
-            onChange={(e) => updateQuestion(que.id, "option1", e.target.value)}
+            value={que.options[1]}
+            onChange={(e) => updateQuestion(que.id, "option-1", e.target.value)}
           />
           <Spacer y={0.5} />
           <Input
             label="2"
             placeholder="Eg. 1110"
-            value={que.option2}
-            onChange={(e) => updateQuestion(que.id, "option2", e.target.value)}
+            value={que.options[2]}
+            onChange={(e) => updateQuestion(que.id, "option-2", e.target.value)}
           />
           <Spacer y={0.5} />
           <Input
             label="3"
             placeholder="Eg. 1011"
-            value={que.option3}
-            onChange={(e) => updateQuestion(que.id, "option3", e.target.value)}
+            value={que.options[3]}
+            onChange={(e) => updateQuestion(que.id, "option-3", e.target.value)}
           />
           <Spacer y={0.5} />
           <Input
             label="4"
             placeholder="Eg. 0101"
-            value={que.option4}
-            onChange={(e) => updateQuestion(que.id, "option4", e.target.value)}
+            value={que.options[4]}
+            onChange={(e) => updateQuestion(que.id, "option-4", e.target.value)}
           />
           <Spacer y />
           Select Correct Answer:

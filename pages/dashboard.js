@@ -15,6 +15,7 @@ export default function Dashboard() {
       {quizzes && quizzes.sort((a, b) => b.id - a.id).map((quiz) => (
         <Quiz key={quiz.id} {...{quiz, revalidate: mutate}} />
       ))}
+      { (!isValidating && !(quizzes?.length >= 1)) && "You currently have 0 quizzes. Please create a quiz to get started!" }
     </>
   );
 }
